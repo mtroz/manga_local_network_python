@@ -1,2 +1,5 @@
-# manga_local_network_python
-Manager scan local network en python
+#Manager scan local network en python
+
+## module nécessaire
+
+	- Nmap version 7.80
