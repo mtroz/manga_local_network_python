@@ -8,7 +8,7 @@
 	1.0 
 """ 
 from apyzme import api, lancer
-from resources.managerservices import ManagerService
+from services.managerservices import ManagerService
 
 class GestionNetwork:
 
