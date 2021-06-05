@@ -9,67 +9,39 @@
 """ 
 from apyzme import api, lancer
 from resources.managerservices import ManagerService
-import subprocess
 
-class GestionNmap:
-
-	def nmap_scan_ips(self, ip):
-		return f"""
-				bash -c "\
-				nmap -sn {ip}/24\
-				| grep Nmap\
-				| grep \\)$\
-				"
-			"""
-
-	def format_list_retour_nmap(self, list_ips):
-		list_formated = [
-			self.format_retour_ip(item) for item in list_ips
-		]
-
-		return list_formated
-
-		
-
-	def format_retour_ip(self, ip):
-		new_ip_format = ""
-		ip = ip.split(" ")
-		ip = ip[len(ip)-2:]
-		ip[1] = ip[1][1:-1]
-		new_ip_format += " ".join(
-			[
-				item for item in ip
-			]
-		)
-		return new_ip_format
-########-----------------------------------------------
 class GestionNetwork:
 
 	def __init__(self):
-		self.manage_ip = GestionNmap()
+		self.manager_service = ManagerService()
 
 	@api( "actions","listip" )
 	def action_command_list_ip( self, arguments ):
-		"""Description courte de l'action test
+		"""Récupérer la liste des machines
 		---
-		Description approfondie de l'argument"""
-		p = subprocess.run(
-			[
-				self.manage_ip.nmap_scan_ips("192.168.1.1")
-			],
-			stdout=subprocess.PIPE,
-			shell=True
-		)
-		list_line_output = (
-			[ item for item in p.stdout.decode( "utf-8" ).split("\n") ]
-		)
-		list_output_format = self.manage_ip.format_list_retour_nmap(list_line_output[:-1])
+		Récupérer la liste des machines retour de l'action [{nom_machine, ip_machine}]"""
+
 		print(
 			"Listes des adresse ip : \n"
 			+ "\n".join(
-				[item for item in list_output_format]
+				[item for item in self.manager_service.get_ip_list()]
 			)
 		)
+
+	@api( "actions", "mapping" )
+	def action_command_scan_lan( self, arguments ):
+		"""Lance un scan du réseau local, récupération des machines et de leurs ip
+		---
+		Action dans l'objectif est de faire un mapping du réseau et d'alimenter la base de donnée avec les informations"""
+
+		print(
+			"Affichage du mapping réalisé : \n"
+			+ "\n".join(
+				[item for item in self.manager_service.start_mapping_network()]
+			)
+		)
+
+
 
 ########-----------------------------------------------
 if __name__=="__main__":
