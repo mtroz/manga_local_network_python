@@ -21,12 +21,7 @@ class GestionNetwork:
 		---
 		Récupérer la liste des machines retour de l'action [{nom_machine, ip_machine}]"""
 
-		print(
-			"Listes des adresse ip : \n"
-			+ "\n".join(
-				[item for item in self.manager_service.get_ip_list()]
-			)
-		)
+		#En cours de développement
 
 	@api( "actions", "mapping" )
 	def action_command_scan_lan( self, arguments ):
