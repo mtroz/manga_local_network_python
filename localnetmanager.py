@@ -7,73 +7,7 @@
 	---
 	1.0 
 """ 
-import os
-import subprocess
-CODES_RETOUR = {
-	"OK": 0, 
-	"ACTION_INCONNUE": 1, 
-	"ACTION_ALERTE" : 2 
-}
-
-API = {
-	"actions": {},
-	"arguments": {}
-}
-
-def api(api_type,api_nom):
-	global API
-	if api_type not in API:
-		API[api_type] = {}
-	def decorateur(fct):
-		try:
-			API[api_type][api_nom] = (fct, fct.__doc__.split("---")[0])
-		except Exception as err:
-			print(f"Entrez d'api incorrect : {err}")
-		return fct
-	return decorateur
-
-def lancer():
-	import argparse
-	m = GestionNetwork()
-	app_nom, app_desc, app_version = [
-		item.strip() for item in __doc__.split("---")
-	]
-	parser = argparse.ArgumentParser(
-		prog=app_nom,
-		description=app_desc
-	)
-	for argument in API["arguments"]:
-		parser.add_argument(
-			f"--{argument}", 
-			required=False,
-			type=API["arguments"][argument][0],  
-			action="append", 
-			help=API["arguments"][argument][1] 
-		)
-	parser.add_argument(
-		"-v",
-		"--version",
-		action="version",
-		version=f"{app_nom} - {app_version}"
-	)
-	parser.add_argument(
-		'action', 
-		help='quelle action entreprendre ? '+", ".join( 
-			str(item) for item in API["actions"].keys()
-		)
-	)
-	arguments = parser.parse_args()
-	print(arguments)
-	if arguments.action in API["actions"]: 
-		API["actions"][arguments.action][0]( 
-			m, 
-			arguments 
-		) 
-		exit( CODES_RETOUR["OK"] ) # si on est parti avant, on part tranquillement
-	else: 
-		print( "cette action n'est pas connu !" ) 
-		exit( CODES_RETOUR["ACTION_INCONNUE"] ) 
-########-----------------------------------------------
+from apyzme import api, lancer
 
 class GestionNmap:
 
@@ -137,4 +71,4 @@ class GestionNetwork:
 
 ########-----------------------------------------------
 if __name__=="__main__":
-	lancer()
+	lancer(GestionNetwork)
