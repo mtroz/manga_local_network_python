@@ -8,6 +8,8 @@
 	1.0 
 """ 
 from apyzme import api, lancer
+from resources.managerservices import ManagerService
+import subprocess
 
 class GestionNmap:
 
