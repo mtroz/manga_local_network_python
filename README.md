@@ -6,7 +6,7 @@
 
 ## librairies python à installer
 
-	- apyzme version 1.0.3
+	- apyzme version 1.0.4
 
 ## Avancement projet
 
