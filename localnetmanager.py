@@ -21,7 +21,7 @@ class GestionNetwork:
 		---
 		Récupérer la liste des machines retour de l'action [{nom_machine, ip_machine}]"""
 
-		#En cours de développement
+		#En cours de développeme
 
 	@api( "actions", "mapping" )
 	def action_command_scan_lan( self, arguments ):
@@ -29,12 +29,7 @@ class GestionNetwork:
 		---
 		Action dans l'objectif est de faire un mapping du réseau et d'alimenter la base de donnée avec les informations"""
 
-		print(
-			"Affichage du mapping réalisé : \n"
-			+ "\n".join(
-				[item for item in self.manager_service.start_mapping_network()]
-			)
-		)
+		print(self.manager_service.start_mapping_network())
 
 
 

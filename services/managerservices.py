@@ -11,6 +11,7 @@ class ManagerService:
 		self.gestionnmap = GestionNmap()
 		#self.managedp = ManageDB("../database/mapping_network.db")
 		self.managerequest = ManageRequestDB()
+		self.managedb = ManageDB()
 
 	def get_ip_list(self):
 		""" 
@@ -40,7 +41,11 @@ class ManagerService:
 		)
 
 		list_output_format = self.gestionnmap.format_list_retour_nmap(list_line_output[:-1])
-		
-		print("Mapping terminé")
+
+		cursordb = self.managedb.cursor()
+		cursordb.executemany(self.managerequest.insert_multiple_ip_machine(),list_output_format)
+		self.managedb.commit()
+		self.managedb.close()
+
 
 		return list_output_format

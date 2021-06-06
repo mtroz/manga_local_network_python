@@ -1,4 +1,4 @@
-#Manager scan local network en python
+# Manager scan local network en python
 
 ## modules nécessaire
 
@@ -16,9 +16,8 @@
 	/!\ Avoir un fichier de configuration type Yaml, pour ajuster localement la configuration hors arguments de lancement (exemple : SMTP) 
 	-> rajouter un moduule type PyYaml (`pip install PyYAML`) - voir [la documentation](https://pyyaml.org/wiki/PyYAMLDocumentation) dédiée 
 
-* SQLITE
-	* Gérer le cas ou la base de donnée n'existe pas
-	[JG] https://docs.python.org/3/library/os.path.html#os.path.isfile 
+
+* Gérer et ajuster la configuration locale du module => module pyYAML https://pyyaml.org/wiki/PyYAMLDocumentation 
 * Gestion des exceptions pour tout le projet 
 	[JG] Avoir des classes dédiées, tout ne doit pas nécessairement au __main__ ( `class MonErreur(Exception): ...` ) 
 * Gestion alert => mail ? => module smtp ?
@@ -37,6 +36,8 @@
 * SQLITE
 	* Mise en place du module SQLITE
 	* Récupération des informations depuis SQLITE
+	* Gérer le cas ou la base de donnée n'existe pas
+	[JG] https://docs.python.org/3/library/os.path.html#os.path.isfile
 
 ### Services du projet développés
 
