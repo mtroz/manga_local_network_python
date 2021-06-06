@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 
-""" 
-	Appli de gestion de mon réseaux 
-	---
-	Ce script à pour but pour le moment de lister les machines de son réseau
-	---
-	1.0 
-""" 
+"""
+	Ici plutot du docstring : 
+	cf. https://sametmax.com/les-docstrings/ 
+"""
+
 from apyzme import api, lancer
 from services.managerservices import ManagerService
 
 class GestionNetwork:
+	""" 
+		Appli de gestion de mon réseaux 
+		---
+		Ce script à pour but pour le moment de lister les machines de son réseau
+		---
+		1.0 
+	""" 
 
 	def __init__(self):
 		self.manager_service = ManagerService()

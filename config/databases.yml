@@ -1,0 +1,14 @@
+
+database: 
+  class: "machines"
+  path: "database" 
+  skel: "./skel/machines.sqlite" 
+  destination: "mapping_network.db" 
+
+---
+
+database: 
+  class: "users"
+  path: "database" 
+  skel: "./skel/users.sqlite" 
+  destination: "users.db" 
