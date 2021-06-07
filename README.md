@@ -7,6 +7,23 @@
 ## librairies python à installer
 
 	- apyzme version 1.0.4
+## Configuration de solution
+
+### Configuration de la base de données
+
+La configuration se fait directement dans le fichier config/databases.yml.
+on retrouve la configuration suivante :
+	
+	database: 
+  		class: "machines"
+  		path: "database" 
+  		skel: "./skel/machines.sqlite" 
+  		destination: "mapping_network.db"
+
+class : permet de différencier les bases de données si il y en a plusieurs  		
+path : représente le chemin vers le fichier de la base de données
+destination : représente le fichier de la base de données
+skel: représente le chemin vers le script d'initialisation de la base de données
 
 ## Avancement projet
 
