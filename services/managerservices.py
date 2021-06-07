@@ -9,9 +9,8 @@ class ManagerService:
 
 	def __init__(self):
 		self.gestionnmap = GestionNmap()
-		#self.managedp = ManageDB("../database/mapping_network.db")
+		self.managedb = ManageDB("./database/mapping_network.db")
 		self.managerequest = ManageRequestDB()
-		self.managedb = ManageDB()
 
 	def get_ip_list(self):
 		""" 

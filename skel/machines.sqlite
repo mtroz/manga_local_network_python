@@ -1,8 +1,8 @@
 
-CREATE TABLE ip_machine ( 
-	# /!\ Préfère un identifiant unique numérique, propre à une table locale 
-	machine text NOT NULL PRIMARY KEY, 
-	ip text, 
-	hostname text 
-) 
+CREATE TABLE IF NOT EXISTS ip_machine ( 
+	machine_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+	hostname text,
+	ip text 
+	 
+);
 

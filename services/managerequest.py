@@ -12,13 +12,13 @@ class ManageRequestDB:
 		return "SELECT name FROM sqlite_master WHERE type='table';"
 
 	def retrieve_datas_ip_machine(self):
-		return "SELECT machine, ip FROM ip_machine"
+		return "SELECT hostname, ip FROM ip_machine"
 
 	def retrieve_ip_from_machine(self,machine):
-		return f"SELECT ip FROM ip_machine WHERE machine='{machine}'"
+		return f"SELECT ip FROM ip_machine WHERE hostname='{machine}'"
 
 	def retrive_machine_from_ip(self,ip):
-		return f"SELECT machine FROM ip_machine WHERE ip='{ip}'"
+		return f"SELECT hostname FROM ip_machine WHERE ip='{ip}'"
 
 	def insert_multiple_ip_machine(self):
-		return 'INSERT INTO ip_machine VALUES (?,?);'
+		return 'INSERT INTO ip_machine(hostname,ip) VALUES (?,?);'
