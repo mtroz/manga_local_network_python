@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 #database directory
+database/mapping_network.db
 database/

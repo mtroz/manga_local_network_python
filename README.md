@@ -34,12 +34,16 @@
 ### Services du projet en cours de développement
 
 * SQLITE
-	* Mise en place du module SQLITE
-	* Récupération des informations depuis SQLITE
-	* Gérer le cas ou la base de donnée n'existe pas
+	* Gérer le cas ou lors du mapping machine existante avec nouvelle ip update la db
+	* Gérer le cas ou une information existe deja en base éviter de mettre un doublon
+	* Récupération des données en base
 	[JG] https://docs.python.org/3/library/os.path.html#os.path.isfile
 
 ### Services du projet développés
-
+* SQLITE
+	* Initialisation de la base de données lorsqu'elle n'existe pas
+	* Mise en place du module SQLITE
 * Mise en place du système d'argument => module argparse
 * Service de récupération des machines connectées
+* YAML
+	* Initialisation du fichier de configuration db
