@@ -25,7 +25,7 @@ class GestionNmap:
 		ip = ip.split(" ")
 		ip = ip[len(ip)-2:]
 		ip[1] = ip[1][1:-1]
-		new_ip_format=[
+		new_ip_format=tuple([
 				item for item in ip
-		]
+		])
 		return new_ip_format

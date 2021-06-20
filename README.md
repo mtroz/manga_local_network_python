@@ -7,6 +7,9 @@
 ## librairies python à installer
 
 	- apyzme version 1.0.4
+	- PyYAML
+
+
 ## Configuration de solution
 
 ### Configuration de la base de données
@@ -54,7 +57,6 @@ skel: représente le chemin vers le script d'initialisation de la base de donné
 	* Gérer le cas ou lors du mapping machine existante avec nouvelle ip update la db
 	* Gérer le cas ou une information existe deja en base éviter de mettre un doublon
 	* Récupération des données en base
-	[JG] https://docs.python.org/3/library/os.path.html#os.path.isfile
 
 ### Services du projet développés
 * SQLITE
@@ -64,3 +66,9 @@ skel: représente le chemin vers le script d'initialisation de la base de donné
 * Service de récupération des machines connectées
 * YAML
 	* Initialisation du fichier de configuration db
+
+## Sources informations
+
+[JG] https://docs.python.org/3/library/os.path.html#os.path.isfile
+https://pyyaml.org/wiki/PyYAMLDocumentation
+https://docs.python.org/3/library/sqlite3.html

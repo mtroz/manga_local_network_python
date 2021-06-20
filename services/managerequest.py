@@ -22,3 +22,6 @@ class ManageRequestDB:
 
 	def insert_multiple_ip_machine(self):
 		return 'INSERT INTO ip_machine(hostname,ip) VALUES (?,?);'
+
+	def update_up_machine(self):
+		return 'UPDATE ip_machine SET ip = ? Where hostname = ?;'

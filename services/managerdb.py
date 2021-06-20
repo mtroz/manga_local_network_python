@@ -14,7 +14,6 @@ def charger( chemin, classes_authorisees=("machines") ):
 	global CheminLocal 
 	with open( chemin, "r" ) as f: 
 		doc_config = yaml.load_all( f, Loader=yaml.FullLoader ) 
-		print("doc_config",doc_config)
 		for item in doc_config:
 			if item["database"]["class"] in classes_authorisees: 
 				try: 
@@ -79,4 +78,3 @@ class ManageDB:
 		self.con.close()
 
 charger( "./config/databases.yml" )
-print(DB)
